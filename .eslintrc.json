@@ -1,12 +1,25 @@
 {
 	"ignorePatterns": ["vite-env.d.ts", "*.config.js"],
 	"parserOptions": {
-		"project": ["./tsconfig.json"]
+		"sourceType": "module",
+		"ecmaVersion": 2020,
+		"extraFileExtensions": [".svelte"]
 	},
-	"globals": {
-		"NodeJS": "readonly"
+	"overrides": [
+		{
+			"files": ["*.svelte"],
+			"parser": "svelte-eslint-parser",
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser"
+			}
+		}
+	],
+	"env": {
+		"node": true,
+		"es2017": true,
+		"browser": true
 	},
-	"extends": ["plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/strict", "plugin:jsx-a11y/strict", "airbnb"],
+	"extends": ["plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/strict", "plugin:svelte/recommended", "plugin:jsx-a11y/strict", "airbnb"],
 	"plugins": ["@typescript-eslint"],
 	"parser": "@typescript-eslint/parser",
 	"rules": {
