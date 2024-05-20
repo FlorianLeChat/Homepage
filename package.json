@@ -22,8 +22,10 @@
     "@tsconfig/svelte": "~5.0",
     "eslint-config-airbnb": "~19.0",
     "eslint-plugin-jsx-a11y": "~6.8",
+    "@vitejs/plugin-basic-ssl": "~1.1",
     "@sveltejs/vite-plugin-svelte": "~3.0",
-    "@typescript-eslint/eslint-plugin": "~7.8"
+    "@typescript-eslint/eslint-plugin": "~7.8",
+    "@sveltejs/vite-plugin-svelte-inspector": "~2.0"
   },
   "engines": {
     "node": ">=18.0",
@@ -31,7 +33,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "lint": "eslint . --ext .js,.ts,.svelte",
+    "lint": "eslint . --fix --ext .js,.ts,.svelte",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "build": "vite build",
     "pretty": "prettier --write \"**/*.{js,ts,svelte}\"",
