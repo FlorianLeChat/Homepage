@@ -1,0 +1,39 @@
+{
+	"ignorePatterns": ["vite-env.d.ts", "*.config.js"],
+	"parserOptions": {
+		"project": ["./tsconfig.json"]
+	},
+	"globals": {
+		"NodeJS": "readonly"
+	},
+	"extends": ["plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/strict", "plugin:jsx-a11y/strict", "airbnb"],
+	"plugins": ["@typescript-eslint"],
+	"parser": "@typescript-eslint/parser",
+	"rules": {
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"quotes": ["error", "double"],
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"eol-last": ["error", "never"],
+		"no-shadow": "off", // -> @typescript-eslint/no-shadow
+		"camelcase": ["error", { "ignoreImports": true, "properties": "never" }],
+		"no-plusplus": "off",
+		"brace-style": ["error", "allman"],
+		"comma-dangle": ["error", "never"],
+		"no-unused-vars": "off", // -> @typescript-eslint/no-unused-vars
+		"linebreak-style": "off",
+		"space-in-parens": ["error", "always"],
+		"operator-linebreak": ["error", "before", { "overrides": { "=": "after" } }],
+		"object-curly-newline": ["error", { "ImportDeclaration": { "minProperties": 0 }}],
+		"array-bracket-spacing": ["error", "always"],
+		"template-curly-spacing": ["error", "always"],
+		"computed-property-spacing": ["error", "always"],
+
+		"import/extensions": ["error", "never", { "json": "ignorePackages" }],
+		"import/prefer-default-export": "off",
+		"import/no-extraneous-dependencies": "off",
+
+		"@typescript-eslint/no-shadow": "error",
+
+		"jsx-a11y/label-has-associated-control": ["error", { "assert": "either" } ] // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/718
+	}
+}
