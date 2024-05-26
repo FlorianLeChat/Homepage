@@ -10,7 +10,7 @@
 <!-- Liste des sorties -->
 <section>
 	<ul>
-		{#each history as entry (entry.id)}
+		{#each history as entry ( entry.id )}
 			<OutputRow entryText={entry.text} entryType={entry.type} />
 		{/each}
 	</ul>

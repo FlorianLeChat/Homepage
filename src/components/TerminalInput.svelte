@@ -8,17 +8,23 @@
 
 	// Gestion de l'événement de relâchement d'une touche.
 	const dispatch = createEventDispatcher();
-	const handleKeyUp = (event: KeyboardEvent) => {
-		if (event.key === "Enter") {
+	const handleKeyUp = ( event: KeyboardEvent ) =>
+	{
+		if ( event.key === "Enter" )
+		{
 			// Envoi de l'événement d'entrée.
-			dispatch("enter", { input: userInput });
+			dispatch( "enter", { input: userInput } );
 			userInput = "";
-		} else if (event.key === "ArrowUp") {
+		}
+		else if ( event.key === "ArrowUp" )
+		{
 			// Envoi de l'événement de remontée dans l'historique.
-			dispatch("historyBackwards");
-		} else if (event.key === "ArrowDown") {
+			dispatch( "historyBackwards" );
+		}
+		else if ( event.key === "ArrowDown" )
+		{
 			// Envoi de l'événement de descente dans l'historique.
-			dispatch("historyForwards");
+			dispatch( "historyForwards" );
 		}
 	};
 </script>
