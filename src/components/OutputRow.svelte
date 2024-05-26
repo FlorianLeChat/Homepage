@@ -1,32 +1,38 @@
 <script lang="ts">
+	// Initialisation des variables.
 	export let entryText: string;
 	export let entryType: string;
 </script>
 
-<li class:input-row={entryType === "input"}>
+<li>
+	<!-- Préfixe de commande -->
 	{#if entryType === "input"}
-		<span class="prompt-icon">root@ns3086602:/&nbsp;$</span>
+		<span class="prompt-icon">root@ns3086602:/$</span>
 	{/if}
 
+	<!-- Sortie de commande -->
 	<span class="entry-text">{@html entryText}</span>
 </li>
 
 <style>
 	li {
-		display: flex;
-		margin: 0;
-		padding: 0;
+		/* Conteneur d'une ligne de sortie */
 		gap: 0.5rem;
 		width: 100%;
+		margin: 0;
+		display: flex;
+		padding: 0;
 		align-items: center;
 	}
 
 	li .prompt-icon {
+		/* Préfixe de commande */
 		color: #00ff00;
 	}
 
 	li .entry-text {
-		word-break: break-word;
+		/* Sortie de commande */
 		display: inline-block;
+		word-break: break-word;
 	}
 </style>
