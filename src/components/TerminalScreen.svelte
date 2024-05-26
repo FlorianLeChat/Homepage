@@ -1,19 +1,13 @@
 <script lang="ts">
+	// Importation des dépendances et composants.
 	import OutputRow from "./OutputRow.svelte";
-	import { afterUpdate } from "svelte";
 	import type { HistoryEntry } from "../interfaces/HistoryEntry";
 
+	// Initialisation des variables.
 	export let history: HistoryEntry[] = [];
-
-	afterUpdate(() => {
-		const terminal = document.getElementById("term");
-
-		if (terminal) {
-			terminal.scrollTop = terminal.scrollHeight - terminal.clientHeight;
-		}
-	});
 </script>
 
+<!-- Liste des sorties -->
 <section>
 	<ul>
 		{#each history as entry (entry.id)}
@@ -22,21 +16,15 @@
 	</ul>
 </section>
 
-<style lang="scss">
+<style>
 	section {
-		height: 100%;
-		width: 100%;
-		overflow-y: auto;
-		display: flex;
-		flex-direction: column;
-		padding: 0;
+		/* Conteneur des sorties */
+		padding: 0.5rem 0.5rem 0 0.5rem;
 	}
 
 	section > ul {
-		list-style-type: none;
-		padding: 0;
+		/* Liste des sorties */
 		margin: 0;
-		display: flex;
-		flex-direction: column;
+		padding: 0;
 	}
 </style>
