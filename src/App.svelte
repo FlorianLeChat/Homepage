@@ -15,65 +15,77 @@
 	let terminalInput: HTMLElement;
 
 	// Montage du composant.
-	onMount(() => {
+	onMount( () =>
+	{
 		// Affichage du message d'accueil.
-		if (!history.length) {
-			doOutput(parser.parse("motd"));
+		if ( !history.length )
+		{
+			doOutput( parser.parse( "motd" ) );
 		}
 
 		// Initialisation de l'index de l'historique.
 		historyIndex = history.length;
-	});
+	} );
 
 	// Mise à jour du composant.
-	afterUpdate(() => {
+	afterUpdate( () =>
+	{
 		// Défilement automatique de la console.
-		terminalInput.scrollIntoView({ block: "end" });
-	});
+		terminalInput.scrollIntoView( { block: "end" } );
+	} );
 
 	// Ajout d'une entrée à l'historique.
-	const addToHistory = (type: string, text: string) => {
-		history = [...history, { id: history.length, text, type }];
+	const addToHistory = ( type: string, text: string ) =>
+	{
+		history = [ ...history, { id: history.length, text, type } ];
 	};
 
 	// Affichage d'une sortie.
-	const doOutput = async (output: string | string[]) => {
-		if (Array.isArray(output)) {
+	const doOutput = async ( output: string | string[] ) =>
+	{
+		if ( Array.isArray( output ) )
+		{
 			// Il s'agit d'un tableau de lignes.
-			for (const line of output) {
-				addToHistory("output", line);
+			for ( const line of output )
+			{
+				addToHistory( "output", line );
 
-				await new Promise((resolve) => setTimeout(resolve, 15));
+				await new Promise( ( resolve ) => setTimeout( resolve, 15 ) );
 			}
-		} else {
+		}
+		else
+		{
 			// Il s'agit d'une seule ligne.
-			addToHistory("output", output);
+			addToHistory( "output", output );
 		}
 	};
 
 	// Gestion de l'événement d'entrée.
-	const handleEnter = (event: CustomEvent) => {
+	const handleEnter = ( event: CustomEvent ) =>
+	{
 		// Récupération de l'entrée utilisateur.
 		const { input } = event.detail;
 
-		addToHistory("input", input);
+		addToHistory( "input", input );
 
 		// Analyse de la commande.
-		let [command, ...args] = input.trim().split(" ");
-		const output = parser.parse(command, args);
+		let [ command, ...args ] = input.trim().split( " " );
+		const output = parser.parse( command, args );
 
 		command = command.toLowerCase();
 
 		// Exécution de la commande.
-		switch (command) {
+		switch ( command )
+		{
 			case "clear": {
 				history = [];
 				break;
 			}
 
 			default: {
-				if (command.length && output) {
-					doOutput(output);
+				if ( command.length && output )
+				{
+					doOutput( output );
 				}
 
 				break;
@@ -85,10 +97,13 @@
 	};
 
 	// Navigation arrière dans l'historique.
-	const historyBackwards = () => {
-		for (let index = historyIndex - 1; index >= 0; index--) {
-			if (history[index].type == "input") {
-				userInput = history[index].text;
+	const historyBackwards = () =>
+	{
+		for ( let index = historyIndex - 1; index >= 0; index-- )
+		{
+			if ( history[ index ].type == "input" )
+			{
+				userInput = history[ index ].text;
 				historyIndex = index;
 				break;
 			}
@@ -96,14 +111,17 @@
 	};
 
 	// Navigation avant dans l'historique.
-	const historyForwards = () => {
+	const historyForwards = () =>
+	{
 		for (
 			let index = historyIndex + 1;
 			index < history.length - 1;
 			index++
-		) {
-			if (history[index].type == "input") {
-				userInput = history[index].text;
+		)
+		{
+			if ( history[ index ].type == "input" )
+			{
+				userInput = history[ index ].text;
 				historyIndex = index;
 				break;
 			}
