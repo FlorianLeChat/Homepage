@@ -14,26 +14,6 @@
 	let historyIndex = 0;
 	let terminalInput: HTMLElement;
 
-	// Montage du composant.
-	onMount( () =>
-	{
-		// Affichage du message d'accueil.
-		if ( !history.length )
-		{
-			doOutput( parser.parse( "motd" ) );
-		}
-
-		// Initialisation de l'index de l'historique.
-		historyIndex = history.length;
-	} );
-
-	// Mise à jour du composant.
-	afterUpdate( () =>
-	{
-		// Défilement automatique de la console.
-		terminalInput.scrollIntoView( { block: "end" } );
-	} );
-
 	// Ajout d'une entrée à l'historique.
 	const addToHistory = ( type: string, text: string ) =>
 	{
@@ -69,13 +49,11 @@
 		addToHistory( "input", input );
 
 		// Analyse de la commande.
-		let [ command, ...args ] = input.trim().split( " " );
+		const [ command, ...args ] = input.trim().split( " " );
 		const output = parser.parse( command, args );
 
-		command = command.toLowerCase();
-
 		// Exécution de la commande.
-		switch ( command )
+		switch ( command.toLowerCase() )
 		{
 			case "clear": {
 				history = [];
@@ -101,7 +79,7 @@
 	{
 		for ( let index = historyIndex - 1; index >= 0; index-- )
 		{
-			if ( history[ index ].type == "input" )
+			if ( history[ index ].type === "input" )
 			{
 				userInput = history[ index ].text;
 				historyIndex = index;
@@ -119,7 +97,7 @@
 			index++
 		)
 		{
-			if ( history[ index ].type == "input" )
+			if ( history[ index ].type === "input" )
 			{
 				userInput = history[ index ].text;
 				historyIndex = index;
@@ -127,6 +105,26 @@
 			}
 		}
 	};
+
+	// Montage du composant.
+	onMount( () =>
+	{
+		// Affichage du message d'accueil.
+		if ( !history.length )
+		{
+			doOutput( parser.parse( "motd" ) );
+		}
+
+		// Initialisation de l'index de l'historique.
+		historyIndex = history.length;
+	} );
+
+	// Mise à jour du composant.
+	afterUpdate( () =>
+	{
+		// Défilement automatique de la console.
+		terminalInput.scrollIntoView( { block: "end" } );
+	} );
 </script>
 
 <!-- Conteneur général -->
