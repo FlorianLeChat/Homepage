@@ -112,7 +112,7 @@
 		// Affichage du message d'accueil.
 		if ( !history.length )
 		{
-			doOutput( parser.parse( "motd" ) );
+			doOutput( parser.parse( "home" ) );
 		}
 
 		// Initialisation de l'index de l'historique.
