@@ -2,7 +2,6 @@ html {
 	/* Structure HTML de la page */
 	height: 100%;
 	overflow: hidden;
-	box-sizing: border-box;
 	font-family: "Courier New", monospace;
 	background-color: rgb(25, 25, 25);
 }
