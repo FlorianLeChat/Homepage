@@ -59,10 +59,13 @@
 
 	section > input {
 		/* Champ de saisie */
+		color: inherit;
 		width: 100%;
 		border: none;
 		padding: 0;
 		outline: none;
+		font-size: inherit;
 		background: none;
+		font-family: inherit;
 	}
 </style>
