@@ -34,8 +34,10 @@
 	<span>root@ns3086602:/$</span>
 
 	<!-- Champ de saisie -->
+	<!-- svelte-ignore a11y-autofocus -->
 	<input
 		type="text"
+		autofocus
 		spellcheck="false"
 		autocomplete="off"
 		autocapitalize="off"
