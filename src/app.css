@@ -3,7 +3,7 @@ html {
 	height: 100%;
 	overflow: hidden;
 	font-family: "Courier New", monospace;
-	background-color: rgb(25, 25, 25);
+	background-color: rgb(23, 23, 23);
 }
 
 body {
@@ -15,18 +15,14 @@ body {
 
 a {
 	/* Lien hypertexte */
-	color: rgb(0, 255, 255);
+	color: cyan;
 }
 
 /* Couleurs personnalisées */
-.color-green {
-	color: rgb(0, 255, 0);
-}
-
 .color-yellow {
-	color: rgb(255, 255, 0);
+	color: yellow;
 }
 
 .color-gray {
-	color: rgb(136, 136, 136);
+	color: gray;
 }
