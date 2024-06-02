@@ -34,8 +34,6 @@
 		"no-unused-vars": "off", // -> @typescript-eslint/no-unused-vars
 		"linebreak-style": "off",
 		"space-in-parens": ["error", "always"],
-		"operator-linebreak": ["error", "before", { "overrides": { "=": "after" } }],
-		"object-curly-newline": ["error", { "ImportDeclaration": { "minProperties": 0 }}],
 		"array-bracket-spacing": ["error", "always"],
 		"template-curly-spacing": ["error", "always"],
 		"computed-property-spacing": ["error", "always"],
