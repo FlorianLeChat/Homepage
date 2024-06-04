@@ -31,12 +31,16 @@
 		if ( Array.isArray( output ) )
 		{
 			// Il s'agit d'un tableau de lignes.
-			for ( const line of output )
-			{
-				addToHistory( "output", line );
-
-				await new Promise( ( resolve ) => setTimeout( resolve, 15 ) );
-			}
+			await Promise.all(
+				output.map( ( line, index ) => new Promise( ( resolve ) =>
+				{
+					setTimeout( () =>
+					{
+						addToHistory( "output", line );
+						resolve( undefined );
+					}, 15 * index );
+				} ) )
+			);
 		}
 		else
 		{
