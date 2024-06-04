@@ -1,14 +1,19 @@
 <script lang="ts">
 	// Importation des dépendances et composants.
 	import { onMount, afterUpdate } from "svelte";
-	import CommandParser from "./utilities/CommandParser";
-	import TerminalInput from "./components/TerminalInput.svelte";
-	import TerminalScreen from "./components/TerminalScreen.svelte";
 	import type { HistoryEntry } from "./interfaces/HistoryEntry";
+	import TerminalScreen from "./components/TerminalScreen.svelte";
+	import TerminalInput from "./components/TerminalInput.svelte";
+
+	// Importation des commandes personnalisées.
+	import home from "./commands/home";
+	import menu from "./commands/menu";
+	import github from "./commands/github";
+	import twitter from "./commands/twitter";
+	import linkedin from "./commands/linkedin";
+	import projects from "./commands/projects";
 
 	// Initialisation des variables.
-	const parser = new CommandParser();
-
 	let history: HistoryEntry[] = [];
 	let userInput = "";
 	let historyIndex = 0;
@@ -21,7 +26,7 @@
 	};
 
 	// Affichage d'une sortie.
-	const doOutput = async ( output: string | string[] ) =>
+	const addQueuedOuput = async ( output: string | string[] ) =>
 	{
 		if ( Array.isArray( output ) )
 		{
@@ -40,6 +45,74 @@
 		}
 	};
 
+	// Interprétation des commandes.
+	const parseCommand = ( command: string ) =>
+	{
+		// Initialisation de la sortie.
+		let output;
+
+		if ( command.length )
+		{
+			// Interprétation de la commande.
+			switch ( command.toLocaleLowerCase() )
+			{
+				case "home":
+					output = JSON.parse( JSON.stringify( home ) );
+					break;
+
+				case "menu":
+					output = JSON.parse( JSON.stringify( menu ) );
+					break;
+
+				case "projects":
+					output = JSON.parse( JSON.stringify( projects ) );
+					break;
+
+				case "github":
+					output = JSON.parse( JSON.stringify( github ) );
+					break;
+
+				case "linkedin":
+					output = JSON.parse( JSON.stringify( linkedin ) );
+					break;
+
+				case "twitter":
+					output = JSON.parse( JSON.stringify( twitter ) );
+					break;
+
+				default:
+					break;
+			}
+		}
+
+		if ( !output )
+		{
+			// Message d'erreur si la commande n'est pas reconnue.
+			output = [ `${ command }: command not found` ];
+		}
+
+		// Transformation de la sortie en tableau si ce n'est pas déjà le cas.
+		if ( !Array.isArray( output ) )
+		{
+			output = [ output ];
+		}
+
+		// Interprétation de la sortie.
+		return output.map( ( line ) => line
+			.replace( /\t/g, "    " )
+			.replace( / /g, "&nbsp;" )
+			.replace( /\n/g, "<br>" )
+			.replace( /\r\n/g, "<br>" )
+			.replace(
+				/<color="(.*?)">(.*?)<\/color>/g,
+				"<span class='color-$1'>$2</span>"
+			)
+			.replace(
+				/<link="(.*?)">(.*?)<\/link>/g,
+				"<a href='$1' target='_blank'>$2</a>"
+			) );
+	};
+
 	// Gestion de l'événement d'entrée.
 	const handleEnter = ( event: CustomEvent ) =>
 	{
@@ -49,8 +122,8 @@
 		addToHistory( "input", input );
 
 		// Analyse de la commande.
-		const [ command, ...args ] = input.trim().split( " " );
-		const output = parser.parse( command, args );
+		const [ command ] = input.trim().split( " " );
+		const output = parseCommand( command );
 
 		// Exécution de la commande.
 		switch ( command.toLowerCase() )
@@ -63,7 +136,7 @@
 			default: {
 				if ( command.length && output )
 				{
-					doOutput( output );
+					addQueuedOuput( output );
 				}
 
 				break;
@@ -112,7 +185,7 @@
 		// Affichage du message d'accueil.
 		if ( !history.length )
 		{
-			doOutput( parser.parse( "home" ) );
+			addQueuedOuput( parseCommand( "home" ) );
 		}
 
 		// Initialisation de l'index de l'historique.
