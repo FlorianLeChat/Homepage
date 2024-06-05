@@ -1,47 +1,19 @@
-# Svelte + TS + Vite
+# 🏠 Homepage
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+## In French
 
-## Recommended IDE Setup
+Ce projet est un petit site Internet conçu sous forme de page d'accueil pour les utilisateurs cherchant à avoir un accès rapide vers mes projets les plus aboutis. Il sert également de porte d'entrée vers mon [Portfolio](https://github.com/FlorianLeChat/Portfolio). Comme vous avez pu le deviner, l'apparence générale du site Internet est lourdement inspirée de [craig-feldman/personal-website-react](https://github.com/craig-feldman/personal-website-react) et [perverse/vue-terminal-homepage](https://github.com/perverse/vue-terminal-homepage), le style est très orienté comme pour simuler un *vrai* terminal de commande sous Linux. Néanmoins, j'ai pris soin d'ajouter ma propre touche personnelle et d'utiliser des technologies différentes pour le développement de ce projet.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+> [!WARNING]
+> L'entièreté du code de ce projet est commenté dans ma langue natale (en français) et n'est pas voué à être traduit en anglais par soucis de simplicité de développement.
 
-## Need an official Svelte framework?
+___
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## In English
 
-## Technical considerations
+This project is a small website designed as a homepage for users looking for quick access to my most advanced projects. It also serves as a gateway to my [Portfolio](https://github.com/FlorianLeChat/Portfolio). As you may have guessed, the overall layout of the website is heavily inspired by [craig-feldman/personal-website-react](https://github.com/craig-feldman/personal-website-react) and [perverse/vue-terminal-homepage](https://github.com/perverse/vue-terminal-homepage), the style being very oriented to simulate a *real* Linux command terminal. However, I took care to add my own personal touch and to use different technologies for the development of this project.
 
-**Why use this over SvelteKit?**
+> [!WARNING]
+> The whole code of this project is commented in my native language (in French) and will not be translated in English for easier programming.
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+![image](https://github.com/FlorianLeChat/Homepage/assets/26360935/e89b0a91-796f-4003-8e5f-d688a1f5a89e)
