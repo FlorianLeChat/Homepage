@@ -1,0 +1,21 @@
+name: homepage
+
+services:
+    # https://github.com/FlorianLeChat/Homepage
+    node:
+        image: homepage
+        restart: always
+        develop:
+            watch:
+                - action: sync
+                  path: .
+                  target: /usr/src/app
+        healthcheck:
+            test: wget --no-check-certificate -O - https://127.0.0.1:5173
+            retries: 3
+            timeout: 5s
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        ports:
+            - "5173:5173"
