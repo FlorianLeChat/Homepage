@@ -22,4 +22,4 @@ This project is a small website designed as a homepage for users looking for qui
 > [!WARNING]
 > The whole code of this project is commented in my native language (in French) and will not be translated in English for easier programming.
 
-![image](https://github.com/FlorianLeChat/Homepage/assets/26360935/e89b0a91-796f-4003-8e5f-d688a1f5a89e)
+![image](https://github.com/FlorianLeChat/Homepage/assets/26360935/673692b0-c8bf-4ce5-845a-4e2fc66917c2)
