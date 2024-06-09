@@ -51,49 +51,43 @@
 	};
 
 	// Interprétation des commandes.
-	const parseCommand = ( command: string ) =>
+	const parseCommand = ( command: string, internal?: boolean ) =>
 	{
 		// Initialisation de la sortie.
 		let output;
 
-		if ( command.length )
+		switch ( command )
 		{
-			// Interprétation de la commande.
-			switch ( command.toLocaleLowerCase() )
-			{
-				case "home":
-					output = JSON.parse( JSON.stringify( home ) );
-					break;
+			case "home":
+				output = internal ? JSON.parse( JSON.stringify( home ) ) : undefined;
+				break;
 
-				case "ls":
-				case "dir":
-				case "menu":
-					output = JSON.parse( JSON.stringify( menu ) );
-					break;
+			case "ls" || "dir" || "menu":
+				output = JSON.parse( JSON.stringify( menu ) );
+				break;
 
-				case "error":
-					output = JSON.parse( JSON.stringify( error ) );
-					break;
+			case "error":
+				output = internal ? JSON.parse( JSON.stringify( error ) ) : undefined;
+				break;
 
-				case "projects":
-					output = JSON.parse( JSON.stringify( projects ) );
-					break;
+			case "projects":
+				output = JSON.parse( JSON.stringify( projects ) );
+				break;
 
-				case "github":
-					output = JSON.parse( JSON.stringify( github ) );
-					break;
+			case "github":
+				output = JSON.parse( JSON.stringify( github ) );
+				break;
 
-				case "linkedin":
-					output = JSON.parse( JSON.stringify( linkedin ) );
-					break;
+			case "linkedin":
+				output = JSON.parse( JSON.stringify( linkedin ) );
+				break;
 
-				case "twitter":
-					output = JSON.parse( JSON.stringify( twitter ) );
-					break;
+			case "twitter":
+				output = JSON.parse( JSON.stringify( twitter ) );
+				break;
 
-				default:
-					break;
-			}
+			default:
+				break;
 		}
 
 		if ( !output )
@@ -128,16 +122,21 @@
 	const handleEnter = ( event: CustomEvent ) =>
 	{
 		// Récupération de l'entrée utilisateur.
-		const { input } = event.detail;
+		const { input } = event.detail as { input?: string };
+
+		if ( !input )
+		{
+			return;
+		}
 
 		addToHistory( "input", input );
 
 		// Analyse de la commande.
-		const [ command ] = input.trim().split( " " );
+		const command = input.toLocaleLowerCase().trim();
 		const output = parseCommand( command );
 
 		// Exécution de la commande.
-		switch ( command.toLowerCase() )
+		switch ( command )
 		{
 			case "clear": {
 				history = [];
@@ -198,7 +197,7 @@
 
 		if ( media.matches )
 		{
-			addQueuedOutput( parseCommand( "error" ) );
+			addQueuedOutput( parseCommand( "error", true ) );
 			terminalInput.style.display = "none";
 			return;
 		}
@@ -206,7 +205,7 @@
 		// Affichage du message d'accueil.
 		if ( !history.length )
 		{
-			addQueuedOutput( parseCommand( "home" ) );
+			addQueuedOutput( parseCommand( "home", true ) );
 		}
 
 		// Initialisation de l'index de l'historique.
