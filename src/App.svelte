@@ -8,6 +8,7 @@
 	// Importation des commandes personnalisées.
 	import home from "./commands/home";
 	import menu from "./commands/menu";
+	import error from "./commands/error";
 	import github from "./commands/github";
 	import twitter from "./commands/twitter";
 	import linkedin from "./commands/linkedin";
@@ -26,7 +27,7 @@
 	};
 
 	// Affichage d'une sortie.
-	const addQueuedOuput = async ( output: string | string[] ) =>
+	const addQueuedOutput = async ( output: string | string[] ) =>
 	{
 		if ( Array.isArray( output ) )
 		{
@@ -68,6 +69,10 @@
 				case "dir":
 				case "menu":
 					output = JSON.parse( JSON.stringify( menu ) );
+					break;
+
+				case "error":
+					output = JSON.parse( JSON.stringify( error ) );
 					break;
 
 				case "projects":
@@ -142,7 +147,7 @@
 			default: {
 				if ( command.length && output )
 				{
-					addQueuedOuput( output );
+					addQueuedOutput( output );
 				}
 
 				break;
@@ -188,10 +193,20 @@
 	// Montage du composant.
 	onMount( () =>
 	{
+		// Message d'erreur sur les terminaux mobiles.
+		const media = window.matchMedia( "(max-width: 1024px)" );
+
+		if ( media.matches )
+		{
+			addQueuedOutput( parseCommand( "error" ) );
+			terminalInput.style.display = "none";
+			return;
+		}
+
 		// Affichage du message d'accueil.
 		if ( !history.length )
 		{
-			addQueuedOuput( parseCommand( "home" ) );
+			addQueuedOutput( parseCommand( "home" ) );
 		}
 
 		// Initialisation de l'index de l'historique.
