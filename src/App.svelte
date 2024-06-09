@@ -64,6 +64,8 @@
 					output = JSON.parse( JSON.stringify( home ) );
 					break;
 
+				case "ls":
+				case "dir":
 				case "menu":
 					output = JSON.parse( JSON.stringify( menu ) );
 					break;
