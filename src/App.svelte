@@ -62,7 +62,9 @@
 				output = internal ? JSON.parse( JSON.stringify( home ) ) : undefined;
 				break;
 
-			case "ls" || "dir" || "menu":
+			case "ls":
+			case "dir":
+			case "menu":
 				output = JSON.parse( JSON.stringify( menu ) );
 				break;
 
