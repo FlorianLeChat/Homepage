@@ -49,7 +49,6 @@
 	{
 		/* Bras du logo GitHub */
 		fill: currentColor;
-		animation: octocat-wave 560ms ease-in-out;
 		transform-origin: 130px 106px
 	}
 
