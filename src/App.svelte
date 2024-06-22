@@ -8,6 +8,7 @@
 	// Importation des commandes personnalisées.
 	import home from "./commands/home";
 	import menu from "./commands/menu";
+	import about from "./commands/about";
 	import error from "./commands/error";
 	import github from "./commands/github";
 	import twitter from "./commands/twitter";
@@ -66,6 +67,10 @@
 			case "dir":
 			case "menu":
 				output = JSON.parse( JSON.stringify( menu ) );
+				break;
+
+			case "about":
+				output = JSON.parse( JSON.stringify( about ) );
 				break;
 
 			case "error":
