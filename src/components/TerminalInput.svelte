@@ -47,19 +47,22 @@
 </section>
 
 <style>
-	section {
+	section
+	{
 		/* Conteneur de l'entrée utilisateur */
 		gap: 0.5rem;
 		display: flex;
 		padding: 0 0.5rem 0.5rem 0.5rem;
 	}
 
-	section > span {
+	section > span
+	{
 		/* Préfixe de commande */
 		color: #00ff00;
 	}
 
-	section > input {
+	section > input
+	{
 		/* Champ de saisie */
 		color: inherit;
 		width: 100%;

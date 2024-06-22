@@ -4,6 +4,7 @@
 	import type { HistoryEntry } from "./interfaces/HistoryEntry";
 	import TerminalScreen from "./components/TerminalScreen.svelte";
 	import TerminalInput from "./components/TerminalInput.svelte";
+	import GitHubCorner from "./components/GitHubCorner.svelte";
 
 	// Importation des commandes personnalisées.
 	import home from "./commands/home";
@@ -229,6 +230,9 @@
 
 <!-- Conteneur général -->
 <main>
+	<!-- Logo GitHub -->
+	<GitHubCorner />
+
 	<!-- Affichage de la console -->
 	<TerminalScreen {history} />
 
@@ -243,7 +247,8 @@
 </main>
 
 <style>
-	main {
+	main
+	{
 		/* Conteneur général */
 		height: 100%;
 		overflow-y: auto;
