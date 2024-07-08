@@ -36,6 +36,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Docker Image and push
+        if: github.event_name == 'push' || ( github.event_name == 'pull_request' && github.event.pull_request.user.login == 'github-actions[bot]' && github.event.pull_request.merged )
         uses: docker/build-push-action@v6
         with:
           push: true
