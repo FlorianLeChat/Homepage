@@ -1,6 +1,7 @@
 <a
 	rel="noopener noreferrer"
 	href="https://github.com/FlorianLeChat/Homepage"
+	title="GitHub"
 	target="_blank"
 	aria-label="GitHub"
 >
