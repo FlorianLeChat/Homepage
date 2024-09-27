@@ -17,7 +17,7 @@ COPY --chown=node:node . .
 # Use cache mount to speed up installation of existing dependencies
 RUN --mount=type=cache,target=.npm \
 	npm set cache .npm && \
-	npm install && chown -R node:node ./node_modules
+	npm ci && chown -R node:node ./node_modules
 
 # Use non-root user
 USER node
