@@ -14,9 +14,9 @@
   },
   "devDependencies": {
     "vite": "~5.4",
-    "tslib": "~2.7",
+    "tslib": "~2.8",
     "husky": "~9.1",
-    "svelte": "~4.2",
+    "svelte": "~5.1",
     "prettier": "~3.3",
     "typescript": "~5.6",
     "lint-staged": "~15.2",
@@ -24,12 +24,12 @@
     "@tsconfig/svelte": "~5.0",
     "svelte-preprocess": "~6.0",
     "eslint-config-airbnb": "~19.0",
-    "eslint-plugin-svelte": "~2.44",
+    "eslint-plugin-svelte": "~2.46",
     "eslint-plugin-jsx-a11y": "~6.10",
     "prettier-plugin-svelte": "~3.2",
     "@vitejs/plugin-basic-ssl": "~1.1",
-    "@sveltejs/vite-plugin-svelte": "~3.1",
-    "@typescript-eslint/eslint-plugin": "~8.8"
+    "@sveltejs/vite-plugin-svelte": "~4.0",
+    "@typescript-eslint/eslint-plugin": "~8.12"
   },
   "engines": {
     "node": ">=18.0",
