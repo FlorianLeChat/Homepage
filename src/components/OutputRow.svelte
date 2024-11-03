@@ -1,7 +1,12 @@
 <script lang="ts">
+	// Déclaration des propriétés.
+	interface EntryProps {
+		entryText: string,
+		entryType: string
+	}
+
 	// Initialisation des variables.
-	export let entryText: string;
-	export let entryType: string;
+	const { entryText, entryType }: EntryProps = $props();
 </script>
 
 <li>
