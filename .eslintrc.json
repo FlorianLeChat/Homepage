@@ -29,6 +29,7 @@
 		"no-shadow": "off", // -> @typescript-eslint/no-shadow
 		"camelcase": ["error", { "ignoreImports": true, "properties": "never" }],
 		"no-plusplus": "off",
+		"prefer-const": "off", // -> https://svelte.dev/docs/svelte/$props
 		"brace-style": ["error", "allman"],
 		"comma-dangle": ["error", "never"],
 		"no-unused-vars": "off", // -> @typescript-eslint/no-unused-vars

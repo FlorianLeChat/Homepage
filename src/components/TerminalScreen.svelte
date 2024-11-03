@@ -4,7 +4,7 @@
 	import type { HistoryEntry } from "../interfaces/HistoryEntry";
 
 	// Initialisation des variables.
-	export let history: HistoryEntry[] = [];
+	const { history = [] }: { history?: HistoryEntry[] } = $props();
 </script>
 
 <!-- Liste des sorties -->

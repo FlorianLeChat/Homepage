@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Importation des dépendances et composants.
-	import { onMount, afterUpdate } from "svelte";
+	import { onMount } from "svelte";
 	import type { HistoryEntry } from "./interfaces/HistoryEntry";
 	import TerminalScreen from "./components/TerminalScreen.svelte";
 	import TerminalInput from "./components/TerminalInput.svelte";
@@ -17,10 +17,10 @@
 	import projects from "./commands/projects";
 
 	// Initialisation des variables.
-	let history: HistoryEntry[] = [];
-	let userInput = "";
-	let historyIndex = 0;
-	let terminalInput: HTMLElement;
+	let history: HistoryEntry[] = $state( [] );
+	let userInput: string = $state( "" );
+	let historyIndex: number = $state( 0 );
+	let terminalInput: HTMLElement|undefined = $state();
 
 	// Ajout d'une entrée à l'historique.
 	const addToHistory = ( type: string, text: string ) =>
@@ -127,11 +127,9 @@
 	};
 
 	// Gestion de l'événement d'entrée.
-	const handleEnter = ( event: CustomEvent ) =>
+	const handleEnter = ( input: string ) =>
 	{
 		// Récupération de l'entrée utilisateur.
-		const { input } = event.detail as { input?: string };
-
 		if ( !input )
 		{
 			return;
@@ -203,7 +201,7 @@
 		// Message d'erreur sur les terminaux mobiles.
 		const media = window.matchMedia( "(max-width: 1024px)" );
 
-		if ( media.matches )
+		if ( media.matches && terminalInput )
 		{
 			addQueuedOutput( parseCommand( "error", true ) );
 			terminalInput.style.display = "none";
@@ -221,10 +219,13 @@
 	} );
 
 	// Mise à jour du composant.
-	afterUpdate( () =>
+	$effect( () =>
 	{
 		// Défilement automatique de la console.
-		terminalInput.scrollIntoView( { block: "end" } );
+		if ( history )
+		{
+			terminalInput?.scrollIntoView( { block: "end" } );
+		}
 	} );
 </script>
 
@@ -240,9 +241,9 @@
 	<TerminalInput
 		{userInput}
 		bind:terminalInput
-		on:enter={handleEnter}
-		on:historyForwards={historyForwards}
-		on:historyBackwards={historyBackwards}
+		enter={handleEnter}
+		historyForwards={historyForwards}
+		historyBackwards={historyBackwards}
 	/>
 </main>
 
