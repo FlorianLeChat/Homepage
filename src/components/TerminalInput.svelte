@@ -1,30 +1,40 @@
 <script lang="ts">
-	// Importation des dépendances et composants.
-	import { createEventDispatcher } from "svelte";
+	// Déclaration des propriétés.
+	interface InputProps {
+		enter: ( input: string ) => void;
+		userInput?: string;
+		terminalInput?: HTMLElement;
+		historyForwards: () => void;
+		historyBackwards: () => void;
+	}
 
 	// Initialisation des variables.
-	export let userInput = "";
-	export let terminalInput: HTMLElement;
+	let {
+		enter,
+		userInput = $bindable( "" ),
+		terminalInput = $bindable(),
+		historyForwards,
+		historyBackwards
+	}: InputProps = $props();
 
 	// Gestion de l'événement de relâchement d'une touche.
-	const dispatch = createEventDispatcher();
 	const handleKeyUp = ( event: KeyboardEvent ) =>
 	{
 		if ( event.key === "Enter" )
 		{
 			// Envoi de l'événement d'entrée.
-			dispatch( "enter", { input: userInput } );
+			enter( userInput );
 			userInput = "";
 		}
 		else if ( event.key === "ArrowUp" )
 		{
 			// Envoi de l'événement de remontée dans l'historique.
-			dispatch( "historyBackwards" );
+			historyBackwards();
 		}
 		else if ( event.key === "ArrowDown" )
 		{
 			// Envoi de l'événement de descente dans l'historique.
-			dispatch( "historyForwards" );
+			historyForwards();
 		}
 	};
 </script>
@@ -34,14 +44,14 @@
 	<span>root@ns3086602:/$</span>
 
 	<!-- Champ de saisie -->
-	<!-- svelte-ignore a11y-autofocus -->
+	<!-- svelte-ignore a11y_autofocus -->
 	<input
 		type="text"
+		onkeyup={handleKeyUp}
 		autofocus
 		spellcheck="false"
 		autocomplete="off"
 		autocapitalize="off"
-		on:keyup={handleKeyUp}
 		bind:value={userInput}
 	/>
 </section>
