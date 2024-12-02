@@ -3,9 +3,9 @@ name: GitHub Pages
 on:
   push:
     branches: [ master ]
-  pull_request:
   schedule:
     - cron: 0 6 * * 1
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -55,6 +55,6 @@ jobs:
         with:
           path: ./dist
       - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' || ( github.event_name == 'pull_request' && github.event.pull_request.user.login == 'github-actions[bot]' && github.event.pull_request.merged )
+        if: github.event_name != 'pull_request'
         id: deployment
         uses: actions/deploy-pages@v4
