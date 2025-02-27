@@ -1,8 +1,9 @@
 <script lang="ts">
 	// Déclaration des propriétés.
-	interface EntryProps {
-		entryText: string,
-		entryType: string
+	interface EntryProps
+	{
+		entryText: string;
+		entryType: string;
 	}
 
 	// Initialisation des variables.
