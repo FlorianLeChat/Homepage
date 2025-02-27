@@ -13,23 +13,25 @@
     "url": "https://github.com/FlorianLeChat/Homepage/issues"
   },
   "devDependencies": {
+    "@types/eslint-plugin-jsx-a11y": "~6.10",
     "vite": "~6.2",
     "tslib": "~2.8",
     "husky": "~9.1",
+    "eslint": "~9.21",
     "svelte": "~5.19",
+    "globals": "~16.0",
     "prettier": "~3.4",
     "typescript": "~5.7",
     "lint-staged": "~15.4",
     "svelte-check": "~4.1",
     "@tsconfig/svelte": "~5.0",
+    "typescript-eslint": "~8.24",
     "svelte-preprocess": "~6.0",
-    "eslint-config-airbnb": "~19.0",
     "eslint-plugin-svelte": "~2.46",
-    "eslint-plugin-jsx-a11y": "~6.10",
     "prettier-plugin-svelte": "~3.3",
+    "@stylistic/eslint-plugin": "~4.0",
     "@vitejs/plugin-basic-ssl": "~1.2",
-    "@sveltejs/vite-plugin-svelte": "~5.0",
-    "@typescript-eslint/eslint-plugin": "~8.22"
+    "@sveltejs/vite-plugin-svelte": "~5.0"
   },
   "engines": {
     "node": ">=18.0",
