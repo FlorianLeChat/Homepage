@@ -21,8 +21,7 @@
 </li>
 
 <style>
-	li
-	{
+	li {
 		/* Conteneur d'une ligne de sortie */
 		gap: 0.5rem;
 		width: 100%;
@@ -32,14 +31,12 @@
 		align-items: center;
 	}
 
-	li .prompt-icon
-	{
+	li .prompt-icon {
 		/* Préfixe de commande */
 		color: #00ff00;
 	}
 
-	li .entry-text
-	{
+	li .entry-text {
 		/* Sortie de commande */
 		display: inline-block;
 	}
