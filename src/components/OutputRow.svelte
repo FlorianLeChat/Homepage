@@ -42,6 +42,5 @@
 	{
 		/* Sortie de commande */
 		display: inline-block;
-		word-break: break-word;
 	}
 </style>
