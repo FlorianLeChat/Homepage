@@ -20,7 +20,7 @@
 	let history: HistoryEntry[] = $state( [] );
 	let userInput: string = $state( "" );
 	let historyIndex: number = $state( 0 );
-	let terminalInput: HTMLElement|undefined = $state();
+	let terminalInput: HTMLElement | undefined = $state();
 
 	// Ajout d'une entrée à l'historique.
 	const addToHistory = ( type: string, text: string ) =>
@@ -61,37 +61,37 @@
 		switch ( command )
 		{
 			case "home":
-				output = internal ? JSON.parse( JSON.stringify( home ) ) : undefined;
+				output = internal ? home : undefined;
 				break;
 
 			case "ls":
 			case "dir":
 			case "menu":
-				output = JSON.parse( JSON.stringify( menu ) );
+				output = menu;
 				break;
 
 			case "about":
-				output = JSON.parse( JSON.stringify( about ) );
+				output = about;
 				break;
 
 			case "error":
-				output = internal ? JSON.parse( JSON.stringify( error ) ) : undefined;
+				output = internal ? error : undefined;
 				break;
 
 			case "projects":
-				output = JSON.parse( JSON.stringify( projects ) );
+				output = projects;
 				break;
 
 			case "github":
-				output = JSON.parse( JSON.stringify( github ) );
+				output = github;
 				break;
 
 			case "linkedin":
-				output = JSON.parse( JSON.stringify( linkedin ) );
+				output = linkedin;
 				break;
 
 			case "twitter":
-				output = JSON.parse( JSON.stringify( twitter ) );
+				output = twitter;
 				break;
 
 			default:
@@ -242,8 +242,8 @@
 		{userInput}
 		bind:terminalInput
 		enter={handleEnter}
-		historyForwards={historyForwards}
-		historyBackwards={historyBackwards}
+		{historyForwards}
+		{historyBackwards}
 	/>
 </main>
 

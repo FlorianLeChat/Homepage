@@ -1,6 +1,7 @@
 <script lang="ts">
 	// Déclaration des propriétés.
-	interface InputProps {
+	interface InputProps
+	{
 		enter: ( input: string ) => void;
 		userInput?: string;
 		terminalInput?: HTMLElement;

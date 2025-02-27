@@ -116,6 +116,9 @@ export default tslint.config(
 			],
 			"@stylistic/computed-property-spacing": [ "error", "always" ],
 
+			// Règles pour Svelte ESLint
+			"svelte/no-at-html-tags": "off",
+
 			// Règles pour TypeScript ESLint
 			"@typescript-eslint/no-empty-function": "off"
 		}
