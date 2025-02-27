@@ -18,51 +18,52 @@
 
 <style>
 	/* Lien vers le dépôt GitHub */
-	a
-	{
+	a {
 		inset: 0 0 auto auto;
 		position: fixed;
 		clip-path: polygon(0 0, 100% 0, 100% 100%);
 	}
 
-	@media screen and (max-width: 1024px)
-	{
-		a
-		{
+	@media screen and (max-width: 1024px) {
+		a {
 			display: none;
 		}
 	}
 
 	/* Animation du logo GitHub */
-	a:hover path:nth-of-type(2)
-	{
+	a:hover path:nth-of-type(2) {
 		animation: octocat-wave 560ms ease-in-out;
 	}
 
 	/* Délimitation de la zone cliquable */
-	svg
-	{
+	svg {
 		fill: cyan;
 		color: rgb(23, 23, 23);
 	}
 
-	svg path:nth-of-type(2)
-	{
+	svg path:nth-of-type(2) {
 		/* Bras du logo GitHub */
 		fill: currentColor;
-		transform-origin: 130px 106px
+		transform-origin: 130px 106px;
 	}
 
-	svg path:nth-of-type(3)
-	{
+	svg path:nth-of-type(3) {
 		/* Corps du logo GitHub */
 		fill: currentColor;
 	}
 
-	@keyframes octocat-wave
-	{
-		0%, 100% { transform:rotate(0); }
-		20%, 60% { transform:rotate(-25deg); }
-		40%, 80% { transform:rotate(10deg); }
+	@keyframes octocat-wave {
+		0%,
+		100% {
+			transform: rotate(0);
+		}
+		20%,
+		60% {
+			transform: rotate(-25deg);
+		}
+		40%,
+		80% {
+			transform: rotate(10deg);
+		}
 	}
 </style>
