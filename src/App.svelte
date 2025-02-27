@@ -248,8 +248,7 @@
 </main>
 
 <style>
-	main
-	{
+	main {
 		/* Conteneur général */
 		height: 100%;
 		overflow-y: auto;

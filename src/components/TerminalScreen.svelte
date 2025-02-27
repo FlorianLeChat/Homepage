@@ -17,14 +17,12 @@
 </section>
 
 <style>
-	section
-	{
+	section {
 		/* Conteneur des sorties */
 		padding: 0.5rem 0.5rem 0 0.5rem;
 	}
 
-	section > ul
-	{
+	section > ul {
 		/* Liste des sorties */
 		margin: 0;
 		padding: 0;
