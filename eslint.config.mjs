@@ -4,7 +4,6 @@ import globals from "globals";
 import stylistic from "@stylistic/eslint-plugin";
 import sveltelint from "eslint-plugin-svelte";
 import svelteConfig from "./svelte.config.js";
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
 
 export default tslint.config(
 	{
@@ -17,8 +16,7 @@ export default tslint.config(
 	sveltelint.configs[ "flat/recommended" ],
 	{
 		plugins: {
-			"@stylistic": stylistic,
-			"@typescript-eslint": typescriptEslint
+			"@stylistic": stylistic
 		},
 		languageOptions: {
 			globals: {
