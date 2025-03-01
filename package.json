@@ -21,7 +21,7 @@
     "svelte": "~5.20",
     "globals": "~16.0",
     "prettier": "~3.5",
-    "typescript": "~5.7",
+    "typescript": "~5.8",
     "lint-staged": "~15.4",
     "svelte-check": "~4.1",
     "@tsconfig/svelte": "~5.0",
