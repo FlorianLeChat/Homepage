@@ -68,6 +68,7 @@
 	section > span {
 		/* Préfixe de commande */
 		color: #00ff00;
+		white-space: nowrap;
 	}
 
 	section > input {
