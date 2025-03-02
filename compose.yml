@@ -4,7 +4,6 @@ services:
     # https://github.com/FlorianLeChat/Homepage
     node:
         image: homepage
-        restart: always
         develop:
             watch:
                 - action: sync
