@@ -6,9 +6,11 @@ services:
         image: homepage
         develop:
             watch:
-                - action: sync
-                  path: .
+                - path: .
+                  action: sync
                   target: /usr/src/app
+                - path: package-lock.json
+                  action: rebuild
         healthcheck:
             test: wget --no-check-certificate -O - https://127.0.0.1:5173
             retries: 3
