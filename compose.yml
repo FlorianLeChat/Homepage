@@ -9,6 +9,8 @@ services:
                 - path: .
                   action: sync
                   target: /usr/src/app
+                  ignore:
+                    - node_modules/
                 - path: package-lock.json
                   action: rebuild
         healthcheck:
