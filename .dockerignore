@@ -1,10 +1,12 @@
-**/*.md
 **/.git*
+**/dist
+**/node_modules
+**/*.md
 **/.dockerignore
 **/.editorconfig
 **/.gitattributes
-**/node_modules
+**/.gitignore
 **/Dockerfile
-**/docker-*
+**/compose.*
 **/CODEOWNERS
 **/LICENSE
