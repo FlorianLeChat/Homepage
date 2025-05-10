@@ -31,8 +31,8 @@
     "@sveltejs/vite-plugin-svelte": "~5.0"
   },
   "engines": {
-    "node": ">=18.0",
-    "npm": ">=8.6"
+    "node": ">=20.0",
+    "npm": ">=9.6"
   },
   "scripts": {
     "dev": "vite",
