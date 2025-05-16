@@ -44,5 +44,11 @@ export default [
 	" ",
 	"|   <color=\"gray\">// 🏠 A terminal-style home page to browse my personal projects (hey, is this the current website?!).</color>",
 	"|   <color=\"yellow\">Homepage</color>                                     <link=\"https://github.com/FlorianLeChat/Homepage\">https://github.com/FlorianLeChat/Homepage</link>",
+	" ",
+	"|   <color=\"gray\">// 🔗 An URL shortener designed to be easy to use, inherently secure and fully customizable, with a strong emphasis on privacy and a fully independent API.</color>",
+	"|   <color=\"yellow\">Raven-Url-Shortener</color>                          <link=\"https://github.com/FlorianLeChat/Raven-Url-Shortener\">https://github.com/FlorianLeChat/Raven-Url-Shortener</link>",
+	" ",
+	"|   <color=\"gray\">// 👨‍💼 An online resume designed to be dynamic, customizable and perfectly adaptable to all media.</color>",
+	"|   <color=\"yellow\">Homepage</color>                                     <link=\"https://github.com/FlorianLeChat/Online-Resume\">https://github.com/FlorianLeChat/Online-Resume</link>",
 	" "
 ];
