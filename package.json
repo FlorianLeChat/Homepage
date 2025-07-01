@@ -14,21 +14,20 @@
   },
   "devDependencies": {
     "@types/eslint-plugin-jsx-a11y": "~6.10",
-    "vite": "~6.3",
     "husky": "~9.1",
-    "eslint": "~9.28",
-    "svelte": "~5.33",
+    "eslint": "~9.30",
+    "svelte": "~5.34",
     "globals": "~16.2",
-    "prettier": "~3.5",
+    "prettier": "~3.6",
     "typescript": "~5.8",
     "lint-staged": "~16.1",
     "svelte-check": "~4.2",
     "@tsconfig/svelte": "~5.0",
-    "typescript-eslint": "~8.33",
-    "eslint-plugin-svelte": "~3.9",
+    "typescript-eslint": "~8.35",
+    "eslint-plugin-svelte": "~3.10",
     "prettier-plugin-svelte": "~3.4",
-    "@stylistic/eslint-plugin": "~4.4",
-    "@sveltejs/vite-plugin-svelte": "~5.0"
+    "@stylistic/eslint-plugin": "~5.1",
+    "@sveltejs/vite-plugin-svelte": "~5.1"
   },
   "engines": {
     "node": ">=20.0",
