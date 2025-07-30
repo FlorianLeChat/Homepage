@@ -47,5 +47,8 @@ export default [
 	" ",
 	"|   <color=\"gray\">// 👨‍💼 An online resume designed to be dynamic, customizable and perfectly adaptable to all media.</color>",
 	"|   <color=\"yellow\">Online Resume</color>                                <link=\"https://github.com/FlorianLeChat/Online-Resume\">https://github.com/FlorianLeChat/Online-Resume</link>",
+	" ",
+	"|   <color=\"gray\">// ⏳ A countdown website for future or past dates, ensuring you never forget how time flies.</color>",
+	"|   <color=\"yellow\">TimeLoop</color>                                     <link=\"https://github.com/FlorianLeChat/TimeLoop\">https://github.com/FlorianLeChat/TimeLoop</link>",
 	" "
 ];
