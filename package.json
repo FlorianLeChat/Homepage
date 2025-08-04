@@ -29,6 +29,9 @@
     "@stylistic/eslint-plugin": "~5.2",
     "@sveltejs/vite-plugin-svelte": "~6.1"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
+  },
   "engines": {
     "node": ">=20.0",
     "npm": ">=9.6"
