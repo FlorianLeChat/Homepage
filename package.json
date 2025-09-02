@@ -15,18 +15,18 @@
   "devDependencies": {
     "@types/eslint-plugin-jsx-a11y": "~6.10",
     "husky": "~9.1",
-    "eslint": "~9.32",
-    "svelte": "~5.37",
+    "eslint": "~9.34",
+    "svelte": "~5.38",
     "globals": "~16.3",
     "prettier": "~3.6",
-    "typescript": "~5.8",
+    "typescript": "~5.9",
     "lint-staged": "~16.1",
     "svelte-check": "~4.3",
     "@tsconfig/svelte": "~5.0",
-    "typescript-eslint": "~8.38",
+    "typescript-eslint": "~8.41",
     "eslint-plugin-svelte": "~3.11",
     "prettier-plugin-svelte": "~3.4",
-    "@stylistic/eslint-plugin": "~5.2",
+    "@stylistic/eslint-plugin": "~5.3",
     "@sveltejs/vite-plugin-svelte": "~6.1"
   },
   "optionalDependencies": {
