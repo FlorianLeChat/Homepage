@@ -50,5 +50,8 @@ export default [
 	" ",
 	"|   <color=\"gray\">// ⏳ A countdown website for future or past dates, ensuring you never forget how time flies.</color>",
 	"|   <color=\"yellow\">TimeLoop</color>                                     <link=\"https://github.com/FlorianLeChat/TimeLoop\">https://github.com/FlorianLeChat/TimeLoop</link>",
+	" ",
+	"|   <color=\"gray\">// ✒️ A blog from a simple man who wants to share his own thoughts.</color>",
+	"|   <color=\"yellow\">Blog</color>                                         <link=\"https://florianlechat.github.io/Blog/\">https://florianlechat.github.io/Blog/</link>",
 	" "
 ];
