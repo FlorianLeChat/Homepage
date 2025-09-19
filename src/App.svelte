@@ -37,17 +37,14 @@
 		{
 			// Il s'agit d'un tableau de lignes.
 			await Promise.all(
-				output.map(
-					( line, index ) =>
-						new Promise( ( resolve ) =>
-						{
-							setTimeout( () =>
-							{
-								addToHistory( "output", line );
-								resolve( undefined );
-							}, 15 * index );
-						} )
-				)
+				output.map( ( line, index ) => new Promise( ( resolve ) =>
+				{
+					setTimeout( () =>
+					{
+						addToHistory( "output", line );
+						resolve( undefined );
+					}, 15 * index );
+				} ) )
 			);
 		}
 		else
@@ -124,21 +121,19 @@
 		}
 
 		// Interprétation de la sortie.
-		return output.map( ( line ) =>
-			line
-				.replace( /\t/g, "    " )
-				.replace( / /g, "&nbsp;" )
-				.replace( /\n/g, "<br>" )
-				.replace( /\r\n/g, "<br>" )
-				.replace(
-					/<color="(.*?)">(.*?)<\/color>/g,
-					"<span class='color-$1'>$2</span>"
-				)
-				.replace(
-					/<link="(.*?)">(.*?)<\/link>/g,
-					"<a href='$1' target='_blank'>$2</a>"
-				)
-		);
+		return output.map( ( line ) => line
+			.replace( /\t/g, "    " )
+			.replace( / /g, "&nbsp;" )
+			.replace( /\n/g, "<br>" )
+			.replace( /\r\n/g, "<br>" )
+			.replace(
+				/<color="(.*?)">(.*?)<\/color>/g,
+				"<span class='color-$1'>$2</span>"
+			)
+			.replace(
+				/<link="(.*?)">(.*?)<\/link>/g,
+				"<a href='$1' target='_blank'>$2</a>"
+			) );
 	};
 
 	// Gestion de l'événement d'entrée.
