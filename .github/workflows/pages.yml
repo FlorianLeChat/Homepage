@@ -34,7 +34,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
       - name: Set npm cache directory
         id: npm-cache
         run: echo "dir=$(npm config get cache)" >> $GITHUB_OUTPUT
