@@ -1,15 +1,15 @@
 # 🏠 Homepage
 
-![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS-639?logo=css&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![HTML](./.gitlab/badges/html.svg)
+![CSS](./.gitlab/badges/css.svg)
+![TypeScript](./.gitlab/badges/typescript.svg)
 
-![Svelte](https://img.shields.io/badge/Svelte-FF3E00?logo=svelte&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
-![Prettier](https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=black)
-![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)
+![Svelte](./.gitlab/badges/svelte.svg)
+![TailwindCSS](./.gitlab/badges/tailwindcss.svg)
+![Docker](./.gitlab/badges/docker.svg)
+![Vite](./.gitlab/badges/vite.svg)
+![Prettier](./.gitlab/badges/prettier.svg)
+![ESLint](./.gitlab/badges/eslint.svg)
 
 ## In French
 
@@ -78,4 +78,4 @@ This project is a small website designed as a homepage for users looking for qui
 > [!CAUTION]
 > The Docker image **cannot** and **was not designed** to run in a production environment. This project generates static files that must be served with a pre-configured web server adhering to security and optimization best practices. ⚠️
 
-![image](https://github.com/FlorianLeChat/Homepage/assets/26360935/673692b0-c8bf-4ce5-845a-4e2fc66917c2)
+![image](./.gitlab/images/homepage.png)
