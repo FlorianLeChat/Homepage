@@ -1,5 +1,4 @@
 html {
-	/* Structure HTML de la page */
 	height: 100%;
 	overflow: hidden;
 	font-family: "Courier New", monospace;
@@ -7,18 +6,15 @@ html {
 }
 
 body {
-	/* Corps de la page */
 	color: whitesmoke;
 	height: 100%;
 	margin: 0;
 }
 
 a {
-	/* Lien hypertexte */
 	color: cyan;
 }
 
-/* Couleurs personnalisées */
 .color-yellow {
 	color: yellow;
 }

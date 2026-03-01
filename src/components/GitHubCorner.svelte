@@ -17,7 +17,6 @@
 </a>
 
 <style>
-	/* Lien vers le dépôt GitHub */
 	a {
 		inset: 0 0 auto auto;
 		position: fixed;
@@ -30,25 +29,21 @@
 		}
 	}
 
-	/* Animation du logo GitHub */
 	a:hover path:nth-of-type(2) {
 		animation: octocat-wave 560ms ease-in-out;
 	}
 
-	/* Délimitation de la zone cliquable */
 	svg {
 		fill: cyan;
 		color: rgb(23, 23, 23);
 	}
 
 	svg path:nth-of-type(2) {
-		/* Bras du logo GitHub */
 		fill: currentColor;
 		transform-origin: 130px 106px;
 	}
 
 	svg path:nth-of-type(3) {
-		/* Corps du logo GitHub */
 		fill: currentColor;
 	}
 
