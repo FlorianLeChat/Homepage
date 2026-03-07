@@ -1,5 +1,5 @@
 export default [
 	" ",
-	"|   <link=\"https://florianlechat.github.io/Online-Resume/\">https://florianlechat.github.io/Online-Resume/</link>",
+	"|   <link=\"https://pages.florian-dev.fr/floriantrayon/Online-Resume/\">https://pages.florian-dev.fr/floriantrayon/Online-Resume/</link>",
 	" "
 ];
