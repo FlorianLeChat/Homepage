@@ -6,7 +6,6 @@
 
 ![Svelte](./.gitlab/badges/svelte.svg)
 ![TailwindCSS](./.gitlab/badges/tailwindcss.svg)
-![Docker](./.gitlab/badges/docker.svg)
 ![Vite](./.gitlab/badges/vite.svg)
 ![Prettier](./.gitlab/badges/prettier.svg)
 ![ESLint](./.gitlab/badges/eslint.svg)
