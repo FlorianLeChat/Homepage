@@ -1,14 +1,14 @@
 # 🏠 Homepage
 
-![HTML](./.gitlab/badges/html.svg)
-![CSS](./.gitlab/badges/css.svg)
-![TypeScript](./.gitlab/badges/typescript.svg)
+![HTML](.gitlab/badges/html.svg)
+![CSS](.gitlab/badges/css.svg)
+![TypeScript](.gitlab/badges/typescript.svg)
 
-![Svelte](./.gitlab/badges/svelte.svg)
-![TailwindCSS](./.gitlab/badges/tailwindcss.svg)
-![Vite](./.gitlab/badges/vite.svg)
-![Prettier](./.gitlab/badges/prettier.svg)
-![ESLint](./.gitlab/badges/eslint.svg)
+![Svelte](.gitlab/badges/svelte.svg)
+![TailwindCSS](.gitlab/badges/tailwindcss.svg)
+![Vite](.gitlab/badges/vite.svg)
+![Prettier](.gitlab/badges/prettier.svg)
+![ESLint](.gitlab/badges/eslint.svg)
 
 ## In French
 
@@ -45,7 +45,7 @@ Ce projet est un petit site Internet conçu sous forme de page d'accueil pour le
 ## In English
 
 > [!IMPORTANT]
-> Since February 2026, the project's code has been hosted on my custom GitLab instance, accessible at [this address](https://git.florian-dev.fr/floriantrayon/Homepage). The GitHub repository is a mirror of the GitLab repository, **automatically kept up to date**.
+> Since February 2026, the project's code has been hosted on my custom GitLab instance, available at [this address](https://git.florian-dev.fr/floriantrayon/Homepage). The GitHub repository is a mirror of the GitLab repository, **automatically kept up to date**.
 >
 > **Public contributions remain on GitHub and are welcome**; validated pull requests will then be manually transferred to GitLab to be integrated. 🙂
 
@@ -75,4 +75,4 @@ This project is a small website designed as a homepage for users looking for qui
 - Remove development dependencies using `npm prune --omit=dev` ;
 - Use a web server to serve the static files generated in the previous step.
 
-![image](./.gitlab/images/homepage.png)
+![image](.gitlab/images/homepage.png)
