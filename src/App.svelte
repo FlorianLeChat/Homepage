@@ -1,235 +1,235 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import type { HistoryEntry } from "./interfaces/HistoryEntry";
-	import TerminalScreen from "./components/TerminalScreen.svelte";
-	import TerminalInput from "./components/TerminalInput.svelte";
-	import GitHubCorner from "./components/GitHubCorner.svelte";
+    import { onMount } from "svelte";
+    import type { HistoryEntry } from "./interfaces/HistoryEntry";
+    import TerminalScreen from "./components/TerminalScreen.svelte";
+    import TerminalInput from "./components/TerminalInput.svelte";
+    import GitHubCorner from "./components/GitHubCorner.svelte";
 
-	import blog from "./commands/blog";
-	import home from "./commands/home";
-	import menu from "./commands/menu";
-	import about from "./commands/about";
-	import error from "./commands/error";
-	import resume from "./commands/resume";
-	import github from "./commands/github";
-	import twitter from "./commands/twitter";
-	import linkedin from "./commands/linkedin";
-	import projects from "./commands/projects";
+    import blog from "./commands/blog";
+    import home from "./commands/home";
+    import menu from "./commands/menu";
+    import about from "./commands/about";
+    import error from "./commands/error";
+    import resume from "./commands/resume";
+    import github from "./commands/github";
+    import twitter from "./commands/twitter";
+    import linkedin from "./commands/linkedin";
+    import projects from "./commands/projects";
 
-	let history: HistoryEntry[] = $state( [] );
-	let userInput: string = $state( "" );
-	let historyIndex: number = $state( 0 );
-	let terminalInput: HTMLElement | undefined = $state();
+    let history: HistoryEntry[] = $state( [] );
+    let userInput: string = $state( "" );
+    let historyIndex: number = $state( 0 );
+    let terminalInput: HTMLElement | undefined = $state();
 
-	const addToHistory = ( type: string, text: string ) =>
-	{
-		history = [ ...history, { id: history.length, text, type } ];
-	};
+    const addToHistory = ( type: string, text: string ) =>
+    {
+        history = [ ...history, { id: history.length, text, type } ];
+    };
 
-	const addQueuedOutput = async ( output: string | string[] ) =>
-	{
-		if ( Array.isArray( output ) )
-		{
-			await Promise.all(
-				output.map( ( line, index ) => new Promise( ( resolve ) =>
-				{
-					setTimeout( () =>
-					{
-						addToHistory( "output", line );
-						resolve( undefined );
-					}, 15 * index );
-				} ) )
-			);
-		}
-		else
-		{
-			addToHistory( "output", output );
-		}
-	};
+    const addQueuedOutput = async ( output: string | string[] ) =>
+    {
+        if ( Array.isArray( output ) )
+        {
+            await Promise.all(
+                output.map( ( line, index ) => new Promise( ( resolve ) =>
+                {
+                    setTimeout( () =>
+                    {
+                        addToHistory( "output", line );
+                        resolve( undefined );
+                    }, 15 * index );
+                } ) )
+            );
+        }
+        else
+        {
+            addToHistory( "output", output );
+        }
+    };
 
-	const parseCommand = ( command: string, internal?: boolean ) =>
-	{
-		let output;
+    const parseCommand = ( command: string, internal?: boolean ) =>
+    {
+        let output;
 
-		switch ( command )
-		{
-			case "blog":
-				output = blog;
-				break;
+        switch ( command )
+        {
+            case "blog":
+                output = blog;
+                break;
 
-			case "home":
-				output = internal ? home : undefined;
-				break;
+            case "home":
+                output = internal ? home : undefined;
+                break;
 
-			case "ls":
-			case "dir":
-			case "menu":
-				output = menu;
-				break;
+            case "ls":
+            case "dir":
+            case "menu":
+                output = menu;
+                break;
 
-			case "about":
-				output = about;
-				break;
+            case "about":
+                output = about;
+                break;
 
-			case "error":
-				output = internal ? error : undefined;
-				break;
+            case "error":
+                output = internal ? error : undefined;
+                break;
 
-			case "resume":
-				output = resume;
-				break;
+            case "resume":
+                output = resume;
+                break;
 
-			case "projects":
-				output = projects;
-				break;
+            case "projects":
+                output = projects;
+                break;
 
-			case "github":
-				output = github;
-				break;
+            case "github":
+                output = github;
+                break;
 
-			case "linkedin":
-				output = linkedin;
-				break;
+            case "linkedin":
+                output = linkedin;
+                break;
 
-			case "twitter":
-				output = twitter;
-				break;
+            case "twitter":
+                output = twitter;
+                break;
 
-			default:
-				break;
-		}
+            default:
+                break;
+        }
 
-		if ( !output )
-		{
-			output = [ `${ command }: command not found` ];
-		}
+        if ( !output )
+        {
+            output = [ `${ command }: command not found` ];
+        }
 
-		if ( !Array.isArray( output ) )
-		{
-			output = [ output ];
-		}
+        if ( !Array.isArray( output ) )
+        {
+            output = [ output ];
+        }
 
-		return output.map( ( line ) => line
-			.replace( /\t/g, "    " )
-			.replace( / /g, "&nbsp;" )
-			.replace( /\n/g, "<br>" )
-			.replace( /\r\n/g, "<br>" )
-			.replace(
-				/<color="(.*?)">(.*?)<\/color>/g,
-				"<span class='color-$1'>$2</span>"
-			)
-			.replace(
-				/<link="(.*?)">(.*?)<\/link>/g,
-				"<a href='$1' target='_blank'>$2</a>"
-			) );
-	};
+        return output.map( ( line ) => line
+            .replace( /\t/g, "    " )
+            .replace( / /g, "&nbsp;" )
+            .replace( /\n/g, "<br>" )
+            .replace( /\r\n/g, "<br>" )
+            .replace(
+                /<color="(.*?)">(.*?)<\/color>/g,
+                "<span class='color-$1'>$2</span>"
+            )
+            .replace(
+                /<link="(.*?)">(.*?)<\/link>/g,
+                "<a href='$1' target='_blank'>$2</a>"
+            ) );
+    };
 
-	const handleEnter = ( input: string ) =>
-	{
-		if ( !input )
-		{
-			return;
-		}
+    const handleEnter = ( input: string ) =>
+    {
+        if ( !input )
+        {
+            return;
+        }
 
-		addToHistory( "input", input );
+        addToHistory( "input", input );
 
-		const command = input.toLocaleLowerCase().trim();
-		const output = parseCommand( command );
+        const command = input.toLocaleLowerCase().trim();
+        const output = parseCommand( command );
 
-		switch ( command )
-		{
-			case "clear": {
-				history = [];
-				break;
-			}
+        switch ( command )
+        {
+            case "clear": {
+                history = [];
+                break;
+            }
 
-			default: {
-				if ( command.length && output )
-				{
-					addQueuedOutput( output );
-				}
+            default: {
+                if ( command.length && output )
+                {
+                    addQueuedOutput( output );
+                }
 
-				break;
-			}
-		}
+                break;
+            }
+        }
 
-		historyIndex = history.length;
-	};
+        historyIndex = history.length;
+    };
 
-	const historyBackwards = () =>
-	{
-		for ( let index = historyIndex - 1; index >= 0; index-- )
-		{
-			if ( history[ index ].type === "input" )
-			{
-				userInput = history[ index ].text;
-				historyIndex = index;
-				break;
-			}
-		}
-	};
+    const historyBackwards = () =>
+    {
+        for ( let index = historyIndex - 1; index >= 0; index-- )
+        {
+            if ( history[ index ].type === "input" )
+            {
+                userInput = history[ index ].text;
+                historyIndex = index;
+                break;
+            }
+        }
+    };
 
-	const historyForwards = () =>
-	{
-		for (
-			let index = historyIndex + 1;
-			index < history.length - 1;
-			index++
-		)
-		{
-			if ( history[ index ].type === "input" )
-			{
-				userInput = history[ index ].text;
-				historyIndex = index;
-				break;
-			}
-		}
-	};
+    const historyForwards = () =>
+    {
+        for (
+            let index = historyIndex + 1;
+            index < history.length - 1;
+            index++
+        )
+        {
+            if ( history[ index ].type === "input" )
+            {
+                userInput = history[ index ].text;
+                historyIndex = index;
+                break;
+            }
+        }
+    };
 
-	onMount( () =>
-	{
-		const media = window.matchMedia( "(max-width: 1024px)" );
+    onMount( () =>
+    {
+        const media = window.matchMedia( "(max-width: 1024px)" );
 
-		if ( media.matches && terminalInput )
-		{
-			addQueuedOutput( parseCommand( "error", true ) );
-			terminalInput.style.display = "none";
-			return;
-		}
+        if ( media.matches && terminalInput )
+        {
+            addQueuedOutput( parseCommand( "error", true ) );
+            terminalInput.style.display = "none";
+            return;
+        }
 
-		if ( !history.length )
-		{
-			addQueuedOutput( parseCommand( "home", true ) );
-		}
+        if ( !history.length )
+        {
+            addQueuedOutput( parseCommand( "home", true ) );
+        }
 
-		historyIndex = history.length;
-	} );
+        historyIndex = history.length;
+    } );
 
-	$effect( () =>
-	{
-		if ( history )
-		{
-			terminalInput?.scrollIntoView( { block: "end" } );
-		}
-	} );
+    $effect( () =>
+    {
+        if ( history )
+        {
+            terminalInput?.scrollIntoView( { block: "end" } );
+        }
+    } );
 </script>
 
 <main>
-	<GitHubCorner />
-	<TerminalScreen {history} />
-	<TerminalInput
-		{userInput}
-		bind:terminalInput
-		enter={handleEnter}
-		{historyForwards}
-		{historyBackwards}
-	/>
+    <GitHubCorner />
+    <TerminalScreen {history} />
+    <TerminalInput
+        {userInput}
+        bind:terminalInput
+        enter={handleEnter}
+        {historyForwards}
+        {historyBackwards}
+    />
 </main>
 
 <style>
-	main {
-		height: 100%;
-		overflow-y: auto;
-		scrollbar-width: none;
-	}
+    main {
+        height: 100%;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
 </style>

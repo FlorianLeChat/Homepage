@@ -1,5 +1,5 @@
 export default [
-	" ",
-	"|   <link=\"https://github.com/FlorianLeChat\">https://github.com/FlorianLeChat</link>",
-	" "
+    " ",
+    "|   <link=\"https://github.com/FlorianLeChat\">https://github.com/FlorianLeChat</link>",
+    " "
 ];
