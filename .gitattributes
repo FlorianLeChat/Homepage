@@ -1,5 +1,2 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-
-# Ignore commands files in language stats
+* text=auto eol=lf
 src/commands/*.ts linguist-detectable=false
