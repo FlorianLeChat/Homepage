@@ -5,7 +5,6 @@
 ![TypeScript](.gitlab/badges/typescript.svg)
 
 ![Svelte](.gitlab/badges/svelte.svg)
-![TailwindCSS](.gitlab/badges/tailwindcss.svg)
 ![Vite](.gitlab/badges/vite.svg)
 ![Prettier](.gitlab/badges/prettier.svg)
 ![ESLint](.gitlab/badges/eslint.svg)
