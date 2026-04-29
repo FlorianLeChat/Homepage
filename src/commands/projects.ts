@@ -42,7 +42,7 @@ export default [
     "|   <color=\"gray\">// 🏠 A terminal-style home page to browse my personal projects (hey, is this the current website?!).</color>",
     "|   <color=\"yellow\">Homepage</color>                                     <link=\"https://github.com/FlorianLeChat/Homepage\">https://github.com/FlorianLeChat/Homepage</link>",
     " ",
-    "|   <color=\"gray\">// 🔗 An URL shortener designed to be easy to use, inherently secure and fully customizable, with a strong emphasis on privacy and a fully independent API.</color>",
+    "|   <color=\"gray\">// 🔗 An URL Shortener designed to be easy to use, inherently secure and fully customizable, with a strong emphasis on privacy and a fully independent API.</color>",
     "|   <color=\"yellow\">Raven Url Shortener</color>                          <link=\"https://github.com/FlorianLeChat/Raven-Url-Shortener\">https://github.com/FlorianLeChat/Raven-Url-Shortener</link>",
     " ",
     "|   <color=\"gray\">// 👨‍💼 An online resume designed to be dynamic, customizable and perfectly adaptable to all media.</color>",
@@ -52,6 +52,9 @@ export default [
     "|   <color=\"yellow\">TimeLoop</color>                                     <link=\"https://github.com/FlorianLeChat/TimeLoop\">https://github.com/FlorianLeChat/TimeLoop</link>",
     " ",
     "|   <color=\"gray\">// ✒️ A blog from a simple man who wants to share his own thoughts.</color>",
-    "|   <color=\"yellow\">Blog</color>                                         <link=\"https://florianlechat.github.io/Blog/\">https://florianlechat.github.io/Blog/</link>",
+    "|   <color=\"yellow\">Blog</color>                                         <link=\"https://blog.florian-dev.fr/\">https://blog.florian-dev.fr/</link>",
+    " ",
+    "|   <color=\"gray\">// 🔮 A website designed to answer every question you can imagine.</color>",
+    "|   <color=\"yellow\">Magic Answers</color>                                <link=\"https://github.com/FlorianLeChat/Magic-Answers\">https://github.com/FlorianLeChat/Magic-Answers</link>",
     " "
 ];
