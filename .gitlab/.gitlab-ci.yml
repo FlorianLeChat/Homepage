@@ -5,15 +5,9 @@ stages:
     - deploy
 
 include:
-    - template: Security/SAST.gitlab-ci.yml
-      inputs:
-        stage: analyze
+    - template: Jobs/SAST.gitlab-ci.yml
     - template: Jobs/SAST-IaC.gitlab-ci.yml
-      inputs:
-        stage: analyze
-    - template: Security/Secret-Detection.gitlab-ci.yml
-      inputs:
-          stage: analyze
+    - template: Jobs/Secret-Detection.gitlab-ci.yml
 
 default:
     cache:
@@ -49,6 +43,15 @@ build:node:
             - dist/
         expire_in: 1 hour
     dependencies: []
+
+sast:
+    stage: analyze
+
+iac-sast:
+    stage: analyze
+
+secret_detection:
+    stage: analyze
 
 deploy:pages:
     stage: deploy
