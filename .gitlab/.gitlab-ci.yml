@@ -16,7 +16,7 @@ default:
 
 lint:eslint:
     stage: lint
-    image: node:20-alpine
+    image: node:22-alpine
     script:
         - npm run lint
     artifacts:
@@ -27,7 +27,7 @@ lint:eslint:
 
 build:node:
     stage: build
-    image: node:20-alpine
+    image: node:22-alpine
     script:
         - npm run build
     artifacts:
