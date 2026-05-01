@@ -1,14 +1,19 @@
 stages:
     - lint
     - build
-    - test
+    - analyze
     - deploy
 
 include:
     - template: Security/SAST.gitlab-ci.yml
+      inputs:
+        stage: analyze
     - template: Jobs/SAST-IaC.gitlab-ci.yml
-    - template: Jobs/Container-Scanning.gitlab-ci.yml
+      inputs:
+        stage: analyze
     - template: Security/Secret-Detection.gitlab-ci.yml
+      inputs:
+          stage: analyze
 
 default:
     cache:
