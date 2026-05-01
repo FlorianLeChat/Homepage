@@ -4,9 +4,6 @@ stages:
     - analyze
     - deploy
 
-variables:
-    SEARCH_MAX_DEPTH: 20
-
 default:
     cache:
         key:
