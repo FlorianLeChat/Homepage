@@ -4,10 +4,8 @@ stages:
     - analyze
     - deploy
 
-include:
-    - template: Jobs/SAST.gitlab-ci.yml
-    - template: Jobs/SAST-IaC.gitlab-ci.yml
-    - template: Jobs/Secret-Detection.gitlab-ci.yml
+variables:
+    SEARCH_MAX_DEPTH: 20
 
 default:
     cache:
@@ -44,14 +42,46 @@ build:node:
         expire_in: 1 hour
     dependencies: []
 
-sast:
+analyze:sast:
     stage: analyze
+    image: $CI_TEMPLATE_REGISTRY_HOST/security-products/semgrep:6
+    script:
+        - /analyzer run
+    artifacts:
+        access: developer
+        paths:
+            - gl-sast-report.json
+        reports:
+            sast:
+                - gl-sast-report.json
+        expire_in: 1 hour
+    dependencies: []
 
-iac-sast:
+analyze:iac-sast:
     stage: analyze
+    image: $CI_TEMPLATE_REGISTRY_HOST/security-products/kics:6
+    script:
+        - /analyzer run
+    artifacts:
+        access: developer
+        paths:
+            - gl-sast-report.json
+        reports:
+            secret_detection: gl-sast-report.json
+    dependencies: []
 
-secret_detection:
+analyze:secret-detection:
     stage: analyze
+    image: $CI_TEMPLATE_REGISTRY_HOST/security-products/secrets:7
+    script:
+        - /analyzer run
+    artifacts:
+        access: developer
+        paths:
+            - gl-secret-detection-report.json
+        reports:
+            secret_detection: gl-secret-detection-report.json
+    dependencies: []
 
 deploy:pages:
     stage: deploy
