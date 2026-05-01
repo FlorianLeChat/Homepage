@@ -27,13 +27,13 @@ Ce projet est un petit site Internet conçu sous forme de page d'accueil pour le
 
 #### Développement local
 
-- Installer [Node.js LTS](https://nodejs.org/) (>20 ou plus) ;
+- Installer [Node.js LTS](https://nodejs.org/) (>22 ou plus) ;
 - Installer les dépendances du projet avec la commande `npm install` ;
 - Démarrer le serveur local Vite avec la commande `npm run dev`.
 
 #### Déploiement en production
 
-- Installer [Node.js LTS](https://nodejs.org/) (>20 ou plus) ;
+- Installer [Node.js LTS](https://nodejs.org/) (>22 ou plus) ;
 - Installer les dépendances du projet avec la commande `npm install` ;
 - Compiler les fichiers statiques du site Internet avec la commande `npm run build` ;
 - Utiliser un serveur Web pour servir les fichiers statiques générés à l'étape précédente.
@@ -56,13 +56,13 @@ This project is a small website designed as a homepage for users looking for qui
 
 #### Local development
 
-- Install [Node.js LTS](https://nodejs.org/) (>20 or higher) ;
+- Install [Node.js LTS](https://nodejs.org/) (>22 or higher) ;
 - Install project dependencies using `npm install` ;
 - Start Vite local server using `npm run dev`.
 
 #### Production deployment
 
-- Install [Node.js LTS](https://nodejs.org/) (>20 or higher) ;
+- Install [Node.js LTS](https://nodejs.org/) (>22 or higher) ;
 - Install project dependencies using `npm install` ;
 - Build static website files using `npm run build` ;
 - Remove development dependencies using `npm prune --omit=dev` ;
