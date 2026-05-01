@@ -1,8 +1,14 @@
 stages:
     - lint
-    - test
     - build
+    - test
     - deploy
+
+include:
+    - template: Security/SAST.gitlab-ci.yml
+    - template: Jobs/SAST-IaC.gitlab-ci.yml
+    - template: Jobs/Container-Scanning.gitlab-ci.yml
+    - template: Security/Secret-Detection.gitlab-ci.yml
 
 default:
     cache:
@@ -12,12 +18,12 @@ default:
         paths:
             - .npm
         policy: pull-push
-    before_script:
-        - npm ci --cache .npm --prefer-offline
 
 lint:eslint:
     stage: lint
     image: node:22-alpine
+    before_script:
+        - npm ci --cache .npm --prefer-offline
     script:
         - npm run lint
     artifacts:
@@ -29,6 +35,8 @@ lint:eslint:
 build:node:
     stage: build
     image: node:22-alpine
+    before_script:
+        - npm ci --cache .npm --prefer-offline
     script:
         - npm run build
     artifacts:
@@ -55,9 +63,3 @@ deploy:pages:
     dependencies:
         - build:node
     allow_failure: false
-
-include:
-    - template: Security/SAST.gitlab-ci.yml
-    - template: Jobs/SAST-IaC.gitlab-ci.yml
-    - template: Jobs/Container-Scanning.gitlab-ci.yml
-    - template: Security/Secret-Detection.gitlab-ci.yml
