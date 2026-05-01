@@ -1,6 +1,7 @@
 stages:
     - lint
     - build
+    - analyze
     - deploy
 
 default:
@@ -11,12 +12,12 @@ default:
         paths:
             - .npm
         policy: pull-push
-    before_script:
-        - npm ci --cache .npm --prefer-offline
 
 lint:eslint:
     stage: lint
     image: node:22-alpine
+    before_script:
+        - npm ci --cache .npm --prefer-offline
     script:
         - npm run lint
     artifacts:
@@ -28,11 +29,56 @@ lint:eslint:
 build:node:
     stage: build
     image: node:22-alpine
+    before_script:
+        - npm ci --cache .npm --prefer-offline
     script:
         - npm run build
     artifacts:
         paths:
             - dist/
+        expire_in: 1 hour
+    dependencies: []
+
+analyze:sast:
+    stage: analyze
+    image: $CI_TEMPLATE_REGISTRY_HOST/security-products/semgrep
+    script:
+        - /analyzer run
+    artifacts:
+        access: developer
+        paths:
+            - gl-sast-report.json
+        reports:
+            sast:
+                - gl-sast-report.json
+        expire_in: 1 hour
+    dependencies: []
+
+analyze:iac-sast:
+    stage: analyze
+    image: $CI_TEMPLATE_REGISTRY_HOST/security-products/kics
+    script:
+        - /analyzer run
+    artifacts:
+        access: developer
+        paths:
+            - gl-sast-report.json
+        reports:
+            secret_detection: gl-sast-report.json
+        expire_in: 1 hour
+    dependencies: []
+
+analyze:secret-detection:
+    stage: analyze
+    image: $CI_TEMPLATE_REGISTRY_HOST/security-products/secrets
+    script:
+        - /analyzer run
+    artifacts:
+        access: developer
+        paths:
+            - gl-secret-detection-report.json
+        reports:
+            secret_detection: gl-secret-detection-report.json
         expire_in: 1 hour
     dependencies: []
 
