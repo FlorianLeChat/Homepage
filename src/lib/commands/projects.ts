@@ -56,5 +56,8 @@ export default [
     " ",
     "|   <color=\"gray\">// 🔮 A website designed to answer every question you can imagine.</color>",
     "|   <color=\"yellow\">Magic Answers</color>                                <link=\"https://github.com/FlorianLeChat/Magic-Answers\">https://github.com/FlorianLeChat/Magic-Answers</link>",
+    " ",
+    "|   <color=\"gray\">// 🎭 A terminal-style website where you can read, explore, and play interactive stories created by humans and AI.</color>",
+    "|   <color=\"yellow\">Terminal Stories</color>                             <link=\"https://github.com/FlorianLeChat/Terminal-Stories\">https://github.com/FlorianLeChat/Terminal-Stories</link>",
     " "
 ];
